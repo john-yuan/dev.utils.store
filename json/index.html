@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JSON Formatter</title>
+    <style>
+        .loading-mask {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #1e1e1e;
+            z-index: 1;
+        }
+        .container {
+            position: fixed;
+            left: 0;
+            top: 50px;
+            right: 0;
+            bottom: 0;
+        }
+        .editor {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #1e1e1e;
+        }
+        .header {
+            height: 50px;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            background-color: #000;
+        }
+        .heading {
+            padding: 0 1em;
+            float: left;
+        }
+        .heading h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            color: #eee;
+            font-weight: normal;
+            line-height: 50px;
+            font-family: serif;
+        }
+        .controls {
+            float: right;
+        }
+        .tab-size-selector {
+            height: 50px;
+            line-height: 50px;
+            padding: 0 1em;
+            float: left;
+            color: #fff;
+        }
+        .beautify-button {
+            height: 50px;
+            line-height: 50px;
+            padding: 0 1em;
+            float: left;
+        }
+        .beautify-button button {
+            display: inline-block;
+            border: 0;
+            outline: none;
+            height: 32px;
+            line-height: 32px;
+            background-color: #f38000;
+            color: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .beautify-button button:hover {
+            background-color: #f37000;
+        }
+        .beautify-button button:active {
+            background-color: #f36000;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-mask"></div>
+    <div class="container">
+        <div id="editor" class="editor"></div>
+    </div>
+    <div class="header">
+        <div class="heading">
+            <h1>JSON Formatter</h1>
+        </div>
+        <div class="controls">
+            <div class="tab-size-selector">
+                <label for="tabSize">Tab size:</label>
+                <select id="tabSize" name="tabSize">
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div class="beautify-button">
+                <button type="button">Beautify JSON</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var requirejs = {
+            baseUrl: 'src/scripts/',
+            paths: {
+                vs: 'monaco-editor/min/vs'
+            }
+        };
+    </script>
+    <script src="./src/scripts/require.js" data-main="main"></script>
+</body>
+</html>
